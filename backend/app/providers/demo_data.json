@@ -1,0 +1,247 @@
+{
+  "as_of": "2026-07-17T15:10:00+08:00",
+  "data_quality": "demo",
+  "market_factors": {
+    "breadth": 67,
+    "limit_balance": 72,
+    "promotion_rate": 61,
+    "seal_rate": 69,
+    "turnover_change": 74,
+    "leader_strength": 79,
+    "concentration": 76,
+    "median_return": 63
+  },
+  "metrics": {
+    "advancers": 3216,
+    "decliners": 1814,
+    "limit_up_count": 63,
+    "limit_down_count": 8,
+    "max_board_height": 5,
+    "broken_board_rate": 24.6,
+    "turnover_billion": 1286.4,
+    "turnover_change_pct": 8.7,
+    "hotspot_concentration": 71.3,
+    "northbound_status": "演示数据未接入"
+  },
+  "sectors": [
+    {
+      "id": "ai-server",
+      "name": "AI服务器",
+      "summary": "算力基础设施成交活跃，核心硬件方向强于市场。",
+      "core_direction": "服务器、光模块与液冷",
+      "change_pct": 4.82,
+      "turnover_billion": 136.5,
+      "capital_flow_billion": 18.7,
+      "factors": {
+        "breadth": 88,
+        "turnover_acceleration": 92,
+        "relative_strength": 91,
+        "limit_density": 82,
+        "leader_strength": 90,
+        "capital_flow": 87,
+        "catalyst_strength": 83,
+        "previous_heat": 74
+      },
+      "catalysts": ["云厂商资本开支预期", "高速互联需求提升"],
+      "risks": ["短期涨幅较大", "高位核心股可能出现分歧"],
+      "stocks": [
+        {
+          "code": "000021",
+          "name": "深科技",
+          "direction": "AI硬件",
+          "change_pct": 5.31,
+          "relative_performance": "强于板块",
+          "capital_status": "成交放量",
+          "reason": "存储与服务器产业链关注度提升",
+          "risk": "板块波动放大时可能快速回撤"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "direction": "高速光模块",
+          "change_pct": 4.67,
+          "relative_performance": "接近板块",
+          "capital_status": "高位活跃",
+          "reason": "算力互联需求预期",
+          "risk": "估值与业绩兑现节奏需持续跟踪"
+        }
+      ],
+      "etfs": [
+        {
+          "code": "515980",
+          "name": "人工智能ETF",
+          "coverage_direction": "AI算力与应用综合覆盖",
+          "tracking_index": "中证人工智能产业指数",
+          "constituent_overlap": 95,
+          "index_theme_match": 92,
+          "chain_match": 90,
+          "alias_match": 88,
+          "freshness": 100,
+          "review_status": 100
+        },
+        {
+          "code": "512480",
+          "name": "半导体ETF",
+          "coverage_direction": "芯片与算力硬件上游",
+          "tracking_index": "中证全指半导体产品与设备指数",
+          "constituent_overlap": 78,
+          "index_theme_match": 84,
+          "chain_match": 96,
+          "alias_match": 72,
+          "freshness": 100,
+          "review_status": 100
+        }
+      ]
+    },
+    {
+      "id": "robotics",
+      "name": "机器人",
+      "summary": "政策与产业进展带动，零部件方向出现扩散。",
+      "core_direction": "减速器、丝杠与执行器",
+      "change_pct": 3.26,
+      "turnover_billion": 98.2,
+      "capital_flow_billion": 11.4,
+      "factors": {
+        "breadth": 82,
+        "turnover_acceleration": 80,
+        "relative_strength": 78,
+        "limit_density": 76,
+        "leader_strength": 81,
+        "capital_flow": 75,
+        "catalyst_strength": 79,
+        "previous_heat": 61
+      },
+      "catalysts": ["产业政策持续推进", "人形机器人供应链验证"],
+      "risks": ["题材分支较多", "量产进度存在不确定性"],
+      "stocks": [
+        {
+          "code": "002050",
+          "name": "三花智控",
+          "direction": "执行器",
+          "change_pct": 3.91,
+          "relative_performance": "强于板块",
+          "capital_status": "趋势活跃",
+          "reason": "机器人执行器产业链预期",
+          "risk": "主题交易拥挤度上升"
+        },
+        {
+          "code": "300124",
+          "name": "汇川技术",
+          "direction": "工业自动化",
+          "change_pct": 2.44,
+          "relative_performance": "弱于板块",
+          "capital_status": "温和放量",
+          "reason": "工控与机器人业务协同",
+          "risk": "制造业需求恢复节奏"
+        }
+      ],
+      "etfs": [
+        {
+          "code": "562500",
+          "name": "机器人ETF",
+          "coverage_direction": "机器人本体与核心零部件",
+          "tracking_index": "中证机器人指数",
+          "constituent_overlap": 96,
+          "index_theme_match": 96,
+          "chain_match": 93,
+          "alias_match": 100,
+          "freshness": 100,
+          "review_status": 100
+        },
+        {
+          "code": "159667",
+          "name": "工业母机ETF",
+          "coverage_direction": "高端制造与工业自动化",
+          "tracking_index": "中证机床指数",
+          "constituent_overlap": 67,
+          "index_theme_match": 73,
+          "chain_match": 85,
+          "alias_match": 58,
+          "freshness": 100,
+          "review_status": 100
+        }
+      ]
+    },
+    {
+      "id": "innovative-medicine",
+      "name": "创新药",
+      "summary": "医药方向出现修复，交易强度低于前两条主线。",
+      "core_direction": "创新药研发与CXO",
+      "change_pct": 2.18,
+      "turnover_billion": 72.6,
+      "capital_flow_billion": 6.3,
+      "factors": {
+        "breadth": 73,
+        "turnover_acceleration": 68,
+        "relative_strength": 65,
+        "limit_density": 58,
+        "leader_strength": 70,
+        "capital_flow": 66,
+        "catalyst_strength": 72,
+        "previous_heat": 54
+      },
+      "catalysts": ["授权交易活跃", "行业政策预期改善"],
+      "risks": ["板块持续性仍需成交确认", "研发和审批进度存在不确定性"],
+      "stocks": [
+        {
+          "code": "600276",
+          "name": "恒瑞医药",
+          "direction": "创新药",
+          "change_pct": 2.63,
+          "relative_performance": "强于板块",
+          "capital_status": "稳步放量",
+          "reason": "创新管线与授权预期",
+          "risk": "研发结果和商业化进度不确定"
+        },
+        {
+          "code": "300347",
+          "name": "泰格医药",
+          "direction": "CXO",
+          "change_pct": 1.71,
+          "relative_performance": "弱于板块",
+          "capital_status": "跟随修复",
+          "reason": "临床研发服务景气预期",
+          "risk": "订单恢复仍需数据验证"
+        }
+      ],
+      "etfs": [
+        {
+          "code": "159992",
+          "name": "创新药ETF",
+          "coverage_direction": "创新药研发与产业链",
+          "tracking_index": "中证创新药产业指数",
+          "constituent_overlap": 97,
+          "index_theme_match": 98,
+          "chain_match": 92,
+          "alias_match": 100,
+          "freshness": 100,
+          "review_status": 100
+        },
+        {
+          "code": "512010",
+          "name": "医药ETF",
+          "coverage_direction": "医药行业综合覆盖",
+          "tracking_index": "沪深300医药卫生指数",
+          "constituent_overlap": 74,
+          "index_theme_match": 76,
+          "chain_match": 80,
+          "alias_match": 65,
+          "freshness": 100,
+          "review_status": 100
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "演示行情快照",
+      "category": "market",
+      "updated_at": "2026-07-17T15:10:00+08:00"
+    },
+    {
+      "name": "演示主题与ETF映射表",
+      "category": "reference",
+      "updated_at": "2026-07-17T08:00:00+08:00"
+    }
+  ]
+}
