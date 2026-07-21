@@ -130,3 +130,18 @@ powershell -ExecutionPolicy Bypass -File .\scripts\verify.ps1
 - 不承诺收益；
 - 不做自动交易或券商连接；
 - 所有输出均为投资研究辅助信息。
+
+## 支持项目
+
+如果这个项目对你有帮助，可以请作者喝杯咖啡。感谢你的支持。
+
+<table>
+  <tr>
+    <th align="center">微信支付</th>
+    <th align="center">支付宝</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/assets/donate-wechat.png" alt="微信支付二维码" width="260" /></td>
+    <td align="center"><img src="docs/assets/donate-alipay.jpg" alt="支付宝二维码" width="260" /></td>
+  </tr>
+</table>
