@@ -13,6 +13,8 @@ import type {
   StockResearchSnapshot,
   SectorEvidence,
   EtfResearch,
+  TradingAgentsRun,
+  TradingAgentsStatus,
 } from "./types";
 
 export const API_BASE_URL =
@@ -114,6 +116,54 @@ export async function generateLlmMarketBrief(): Promise<LlmMarketBrief> {
   });
   if (!response.ok) throw new Error(`LLM简报接口返回 ${response.status}`);
   return response.json() as Promise<LlmMarketBrief>;
+}
+
+async function readApiError(response: Response, fallback: string): Promise<Error> {
+  const payload = (await response.json().catch(() => null)) as {
+    detail?: string;
+  } | null;
+  return new Error(payload?.detail || fallback);
+}
+
+export async function fetchTradingAgentsStatus(): Promise<TradingAgentsStatus> {
+  const response = await fetch(`${API_BASE_URL}/trading-agents/status`, {
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    throw await readApiError(response, `多智能体状态接口返回 ${response.status}`);
+  }
+  return response.json() as Promise<TradingAgentsStatus>;
+}
+
+export async function startTradingAgentsRun(input: {
+  code: string;
+  depth: "quick" | "standard";
+  analysisDate?: string;
+}): Promise<TradingAgentsRun> {
+  const response = await fetch(`${API_BASE_URL}/trading-agents/runs`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      code: input.code,
+      depth: input.depth,
+      analysis_date: input.analysisDate || null,
+    }),
+  });
+  if (!response.ok) {
+    throw await readApiError(response, `无法启动多智能体研判（${response.status}）`);
+  }
+  return response.json() as Promise<TradingAgentsRun>;
+}
+
+export async function fetchTradingAgentsRun(id: string): Promise<TradingAgentsRun> {
+  const response = await fetch(
+    `${API_BASE_URL}/trading-agents/runs/${encodeURIComponent(id)}`,
+    { cache: "no-store" },
+  );
+  if (!response.ok) {
+    throw await readApiError(response, `读取研判任务失败（${response.status}）`);
+  }
+  return response.json() as Promise<TradingAgentsRun>;
 }
 
 export async function fetchSectorDetail(id: string): Promise<SectorOverview> {

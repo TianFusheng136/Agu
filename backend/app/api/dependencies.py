@@ -7,6 +7,7 @@ from app.providers.demo import DemoMarketDataProvider
 from app.services.market_radar import MarketRadarService
 from app.services.research_cache import FileResearchCacheStore
 from app.services.sector_history import FileSectorSnapshotStore
+from app.services.trading_agents import TradingAgentsService
 
 
 @lru_cache(maxsize=1)
@@ -30,3 +31,9 @@ def get_market_radar_service() -> MarketRadarService:
             cache_root / "research-last-success.json"
         ),
     )
+
+
+@lru_cache(maxsize=1)
+def get_trading_agents_service() -> TradingAgentsService:
+    project_root = Path(__file__).resolve().parents[3]
+    return TradingAgentsService(project_root / ".runtime" / "trading-agents")

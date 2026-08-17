@@ -321,6 +321,76 @@ export interface LlmMarketBrief {
   } | null;
 }
 
+export interface TradingAgentsStatus {
+  state: "ready" | "package-missing" | "llm-not-configured";
+  installed: boolean;
+  configured: boolean;
+  version: string | null;
+  model: string | null;
+  message: string;
+  analysts: string[];
+  data_source: string;
+  execution_enabled: false;
+}
+
+export interface TradingAgentsRunResult {
+  analyst_reports: {
+    technical: string;
+    sentiment: string;
+    news: string;
+    fundamentals: string;
+  };
+  research_debate: { bull: string; bear: string; judge: string };
+  risk_review: {
+    aggressive: string;
+    neutral: string;
+    conservative: string;
+    judge: string;
+  };
+  research_plan: string;
+  strategy_hypothesis: string;
+  final_assessment: string;
+  direction_summary: {
+    direction: "看多" | "偏多" | "中性" | "偏空" | "看空";
+    rating: "Buy" | "Overweight" | "Hold" | "Underweight" | "Sell";
+    bullish_weight: number;
+    bearish_weight: number;
+    weight_note: string;
+    framework_price_target: number | null;
+    framework_price_target_note: string;
+    price_context: {
+      state: "inside-zone" | "above-zone" | "below-zone" | "unavailable";
+      current_price?: number;
+      observation_zone_low?: number;
+      observation_zone_high?: number;
+      ma10?: number;
+      ma20?: number;
+      support_20d?: number;
+      resistance_20d?: number;
+      as_of?: string;
+      message: string;
+      method?: string;
+    };
+  };
+  source_note: string;
+  disclaimer: string;
+}
+
+export interface TradingAgentsRun {
+  id: string;
+  state: "queued" | "running" | "completed" | "failed";
+  code: string;
+  ticker: string;
+  analysis_date: string;
+  depth: "quick" | "standard";
+  created_at: string;
+  started_at: string | null;
+  completed_at: string | null;
+  message: string;
+  price_context?: TradingAgentsRunResult["direction_summary"]["price_context"] | null;
+  result: TradingAgentsRunResult | null;
+}
+
 export interface MarketOverview {
   as_of: string;
   data_quality: string;

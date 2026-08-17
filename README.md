@@ -17,6 +17,7 @@
 - 热点代表股、K 线、MACD、KDJ 与周 K 异动统计；
 - 股票、板块、ETF 名称或代码统一搜索，A 股代码表启动时后台预热并持久缓存；
 - 每日结构化市场简报与 OpenAI-compatible LLM 解读；
+- 可选多智能体研判：技术、情绪、新闻、基本面独立研究，多空辩论与风险复核；
 - AKShare 公开行情与离线演示 Provider 解耦；
 - 60 秒行情快照缓存、股票目录持久缓存、来源时间、交易状态和上游异常提示；
 - 上游失败时返回 `503`，不会静默回退成演示数据。
@@ -46,6 +47,14 @@ flowchart LR
 - API Key 仅保存在本机 `.runtime/config/llm-config.json`，状态接口与前端响应不会返回 Key；
 - AI 结果固定整理为“市场结论、核心证据、风险、数据缺口”四块，页面不再直接渲染模型返回的 Markdown；
 - 如果模型返回的 JSON 结构不合格，本次分析会明确失败，不会把无法验证的原始文本包装成结果。
+
+### 可选：多智能体研判
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-trading-agents.ps1
+```
+
+安装后重启 Agu，在导航栏打开“多智能体研判”。该页面复用“AI 简报”中的本机模型配置，分别展示技术、情绪、新闻、基本面报告，以及多空辩论和风险复核。它使用独立外部数据链，不连接券商，不执行订单。详细边界见 [`docs/MULTI_AGENT_RESEARCH.md`](docs/MULTI_AGENT_RESEARCH.md)。
 
 ## 技术栈
 
@@ -110,6 +119,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\verify.ps1
 | GET | `/api/v1/sectors/hot` | 热点板块排序 |
 | GET | `/api/v1/sectors/{sector_id}` | 板块详情 |
 | GET | `/api/v1/search?q=深科技` | 股票 / 板块 / ETF 搜索 |
+| GET | `/api/v1/trading-agents/status` | 多智能体组件与模型状态 |
+| POST | `/api/v1/trading-agents/runs` | 创建多智能体研究任务 |
+| GET | `/api/v1/trading-agents/runs/{job_id}` | 查询研究任务与结果 |
 
 ## 实时数据口径
 
