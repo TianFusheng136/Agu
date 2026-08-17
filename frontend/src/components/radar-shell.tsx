@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { href: "/sectors", label: "热点板块", short: "板块" },
   { href: "/stocks", label: "核心观察", short: "股票" },
   { href: "/brief", label: "AI 简报", short: "简报" },
+  { href: "/agents", label: "多智能体研判", short: "研判" },
 ] as const;
 
 const KIND_LABELS: Record<SearchResult["kind"], string> = {
@@ -191,7 +192,7 @@ export function RadarShell({
   overview,
   children,
 }: {
-  active: "market" | "sectors" | "stocks" | "brief";
+  active: "market" | "sectors" | "stocks" | "brief" | "agents";
   overview: MarketOverview;
   children: React.ReactNode;
 }) {
@@ -200,6 +201,7 @@ export function RadarShell({
     sectors: "/sectors",
     stocks: "/stocks",
     brief: "/brief",
+    agents: "/agents",
   }[active];
 
   return (
